@@ -1,0 +1,47 @@
+
+
+.intro{
+    background-image: url("crypton.jpg");
+    background-size: 1000px 300px;
+    height: 300px;
+    width:1000px;
+
+
+}
+h1{
+    text-align: center;
+    color: red;
+
+
+}
+h2{
+    text-align: center;
+    COLOR: yellow;
+}
+.intro-right{
+    height: 10px;
+    width: 10px;
+    margin-left:70px;
+    margin-right:50px ;
+
+    
+
+    
+}
+.start{display: flex;
+    flex: wrap;
+
+}
+.pnt{
+    height: 300px;
+    width: 1000px;
+
+}
+.sup{
+    display: flex;
+    flex-wrap: wrap;
+}
+.henry{
+    height: 100px;
+    width: 100px;s
+}
