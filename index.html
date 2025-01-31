@@ -1,161 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPACE WALKER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    /* This style sets the width of all images to 100%: */
-    img {
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and CRT Effect */
+    body {
+      background: #1a001a; /* Deep purple base */
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.5;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      background: url("./spaceimage/scanlines.png.jpg");
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 9999;
     }
 
-
-
-    div.img parent box {
-      background-image: url("bg-image.jpg");
+    /* Floating Stars Animation */
+    @keyframes floatStars {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
     }
 
-    table,
-    th,
-    td {
-      border: 5px solid rgb(228, 7, 7);
-      border-collapse: collapse;
-
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10%" cy="20%" r="1" fill="white" /><circle cx="30%" cy="50%" r="1" fill="white" /><circle cx="70%" cy="80%" r="1" fill="white" /><circle cx="90%" cy="10%" r="1" fill="white" /></svg>');
+      animation: floatStars 5s infinite;
+      z-index: -1;
     }
 
-    div.rockets {
-      border: 5px solid red;
+    /* Retro Typography */
+    h1, h2, h3 {
+      font-family: 'Press Start 2P', cursive;
       text-align: center;
-      background-color: aliceblue;
+      margin: 20px 0;
+      padding: 0 15px;
     }
 
-    div.imgrocket {
-      text-align: center;
+    h1 {
+      font-size: 2rem;
+      color: #ff0;
+      text-shadow: 2px 2px #f00;
+      animation: glow 1.5s infinite alternate;
+    }
 
-      background-image: url("NASA.jpg");
-      background-size: 1200px 900px;
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #ff0; }
+      100% { text-shadow: 0 0 20px #ff0; }
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
+    .intro {
+      border: 3px solid #9e9e9e;
+      background: rgba(156, 159, 161, 0.8);
+      margin: 2rem auto;
+      width: 95%;
+      max-width: 1200px;
+    }
+
+    .mars-image {
+      max-width: 500px;
+      border: 10px solid #a8a8d0;
+      box-shadow: 0 0 20px rgba(168, 168, 208, 0.5);
+    }
+
+    /* Navigation Buttons */
+    .bikash {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .button {
+      background: #0f0;
+      color: #000;
+      border: 2px solid #f00;
+      padding: 10px 20px;
+      margin: 5px;
+      font-family: 'Courier New', Courier, monospace;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #f00;
+      color: #0f0;
+    }
+
+    /* Content Container */
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Mission Control Panel */
+    .mission-control {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 10px;
+      border: 3px solid #0f0;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .mission-control img {
+      width: 250px;
+      height: 150px;
+      margin: 0;
+    }
+
+    /* Rocket Launch Animation */
+    @keyframes launch {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+
+.rocket-launch {
+  position: relative;
+  width: 100px;
+  margin: 40px auto;
+  animation: none; /* Disable animation by default */
+}
+
+    /* Space Weather Report */
+    .space-weather {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 3px solid #f00;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Galactic Map */
+    .galactic-map {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 3px solid #0f0;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Space Travel Checklist */
+    .checklist {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 3px solid #f00;
+      text-align: left;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .checklist img {
+      width: 60px;
+      height: auto;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    /* Customer Reviews */
+    .reviews {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 3px solid #0f0;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .reviews img {
+      width: 50px;
+      height: auto;
+      border-radius: 50%;
+      margin: 10px;
     }
   </style>
 </head>
-
 <body>
-  <h1 align="center">SPACE WALKER</h1>
- 
-  <div class="bikash">
-   <button class="button">
-      HOME</button>
+  <div class="stars"></div>
+  <div class="content-wrapper">
+    <h1>SPACE WALKER</h1>
+    
+    <div class="bikash">
+      <button class="button">HOME</button>
       <button class="button">
-        <a href="https://www.spacex.com/" target="_blank">SpaceX</a></button>
-        <button type="submit">
-        <a href="login/login.html">Login</a></button>
-        </div>
-
-  <img  class="intro" src="Space-intro.jpg" alt="(space intro) saturn kind of planet with spaceships on the left "
-    style="width:1350px;height:300px;">
-
-  <hr width="1350" height="90" color="gray">
-  <h2 align="center">!WELCOME! to our space walking Website!!!!</h2>
-
-  <div class="img-parent-box">
-    <p>
-    <div class="img child box">
-      Here in space walking website you can get a Picture(idea) on how to get to space through our silent service.
-      Are you a billionare? Who wants to go to Mars because people on Earth are no damn good- a misogamist or have
-      "Elon"
-      syndrome. hahahahahaaaah
-      No you don't have to be a billionare for that you can be a
-      <br>We often refer to our expanding universe with one simple word: space. But where does space begin and, more
-      importantly, what is it?
-      Space is an almost perfect vacuum, nearly void of matter and with extremely low pressure. In space, sound doesn't
-      carry because there aren't molecules close enough together to transmit sound between them. Not quite empty, bits
-      of
-      gas, dust and other matter floats around "emptier" areas of the universe, while more crowded regions can host
-      planets, stars and galaxies. From our Earth-bound perspective, outer space is most often thought to begin about 62
-      miles (100 kilometers) above sea level at what is known as the Kármán line. This is an imaginary boundary at an
-      altitude where there is no appreciable air to breathe or scatter light. Passing this altitude, blue starts to give
-      way to black because oxygen molecules are not in enough abundance to make the sky blue.<br>The plan is this:
-      NASA’s Perseverance Rover, which has scouted 13 kilometres of the martian surface and acquired 17 rock and
-      regolith samples and one atmospheric sample since its arrival in 2021, will deliver samples to the NASA Sample
-      Retrieval lander (SRL). The SRL is quipped with an ESA 2.5 m Sample Transfer Arm and a rocket for launching the
-      sample container into martian orbit. Once there, an ESA spacecraft will capture the container and bring it safely
-      to Earth.
-      The backup plan is to create a depot of samples by early 2023, should the rover be unable to deliver the samples
-      itself to lander in 2030. This reconfiguration of the campaign now. </p>
-
-     <p align="center"><img class="Mars" src="mars.jpg" alt="A couple in Mars" style="width:500px;height:600px;"></p>
-
+        <a href="https://www.spacex.com/" target="_blank">SpaceX</a>
+      </button>
+      <button class="button">
+        <a href="login/login.html">Login</a>
+      </button>
     </div>
 
-    <div class="rockets">
-      <div class="imgrocket">
-        <!---ordered list-->
-        <h3>The list of top company that will lead you to space</h3>
-        <ol>
-          <li>SpaceX</li>
-          <li>blue origin</li>
-          <li>NASA</li>
-          <li>ISRO</li>
-          <li>RSA</li>
-        </ol>
-        <!---end of ordered list-->
+    <img class="intro" src="./spaceimage/Space-intro (2).jpg" alt="Retro space scene">
 
-        <h3>People who have booked their tickets through our service</h3>
-        <table align="center">
-          <tr>
-            <th>NAME</th>
-            <th>Address</th>
-            <th>Date of Flight</th>
-          </tr>
-          <tr>
-            <th>Donuld Trumph</th>
-            <th>Washington DC</th>
-            <th>May 2026</th>
-          </tr>
-        </table>
+    <hr>
 
+    <h2>!WELCOME! TO OUR SPACE WALKING WEBSITE!!!!</h2>
 
-        <h1>The Rocket Selection</h1>
+    <div class="main-content">
+      <p class="satire">
+        "Earth getting too mainstream for you? Try our Mars package - now with 30% less oxygen and 100% more Elon tweets!"
+      </p>
 
-        <p>Select your prefered rockets that will take you to outer space.</p>
+      <img class="mars-image" src="./spaceimage/mars.jpg" alt="Colonists on Mars">
 
-        <form action="/">
-          <label for="rockets">Choose a rocket:</label>
-          <select name="rocket" id="rockets">
-            <optgroup label="SpaceX">SpaceX
-              <option value="Spacex">Falcon 9</option>
-              <option value="SpaceX">STARSHIP</option>
-              <option value="SpaceX"></option>
-            </optgroup>
+      <!-- Mission Control Panel -->
+<div class="mission-control">
+    <h3>MISSION CONTROL</h3>
+    <button class="button" id="launch-button">
+      <img src="./spaceimage/launch-icon.png" alt="Launch Rocket Icon"> Launch Rocket
+    </button>
+    <button class="button" id="shield-button">
+      <img src="./spaceimage/shield-icon.png" alt="Activate Shields Icon"> Activate Shields
+    </button>
+    <button class="button" id="hyperdrive-button">
+      <img src="./spaceimage/hyperdrive-icon.png" alt="Engage Hyperdrive Icon"> Engage Hyperdrive
+    </button>
+    <p id="status-message">Status: Ready</p>
+  </div>
+  
+  <!-- Rocket Launch Animation -->
+  <div class="rocket-launch" id="rocket">
+    <img src="./spaceimage/rocket.png.png" alt="Animated rocket">
+  </div>
+  
+ 
 
-            <optgroup label="NASA">NASA
-              <option value="NASA">Saturn V</option>
-              <option value="SpaceX">Artemis 1 moon rocket</option>
-              <option value="SpaceX"></option>
-            </optgroup>
-            <optgroup label="Marvel(S.H.I.E.L.D.)">Marvel(S.H.I.E.L.D.)
-              <option value="MARVEL comics">Quin Jet</option>
-              <option value="MAevel comics"> Thanos's(ship)Sanctuary 2</option>
-              <option value="marvel comics">Benatar(Star lord ship)</option>
-              <option value="SpaceX"></option>
-            </optgroup>
-            <optgroup label="ISRO">
-              <option value="ISRO">PSLV</option>
-              <option value="ROhini">Rohini</option>
-            </optgroup>
-          </select>
-          <br><br>
-          <input type="submit" value="Submit">
-           <button>
-            <a href="Superman/Superman.html">SUPERMAN</a></button>
-          
-        </form>
+      <div class="space-weather">
+        <h3>Space Weather Report</h3>
+        <img src="./spaceimage/space-weather.jpeg" alt="Retro space weather map">
+        <p>Mars: Dust storms, bring a scarf! 🌪️</p>
+        <p>Jupiter: Hurricane party, BYOB! 🌀</p>
+        <p>Saturn: Chilly with a chance of rings. ❄️</p>
+      </div>
 
+      <div class="galactic-map">
+        <h3>Galactic Destinations</h3>
+        <img src="./spaceimage/galactic-map.jpeg" alt="Retro galactic map">
+        <p>Explore: Elon's Mars Resort, The Milky Way Diner, Black Hole Beach!</p>
+      </div>
 
-        <p style="color:brown">Click the "Submit" button that will lead you to its official page or image.</p>
+<!-- Rocket Selection Section -->
+<div class="rocket-selector">
+    <h3>CHOOSE YOUR SPACECRAFT</h3>
+    
+    <div class="terminal-style">
+      <select id="rocket-select" class="retro-dropdown">
+        <optgroup label="🚀 SpaceX" class="option-group">
+          <option value="falcon9">Falcon 9</option>
+          <option value="starship">Starship</option>
+          <option value="dragon">Crew Dragon</option>
+        </optgroup>
+        
+        <optgroup label="🛰️ NASA" class="option-group">
+          <option value="saturnv">Saturn V</option>
+          <option value="artemis">Artemis Moon Rocket</option>
+          <option value="orion">Orion Capsule</option>
+        </optgroup>
+        
+        <optgroup label="🛸 Marvel (S.H.I.E.L.D.)" class="option-group">
+          <option value="quinjet">Quinjet</option>
+          <option value="sanctuary">Thanos' Sanctuary II</option>
+          <option value="benatar">Star-Lord's Benatar</option>
+        </optgroup>
+        
+        <optgroup label="🇮🇳 ISRO" class="option-group">
+          <option value="pslv">PSLV</option>
+          <option value="gslv">GSLV Mk III</option>
+        </optgroup>
+      </select>
+      
+      <button class="superman-button" onclick="window.location.href='Superman/Superman(DeepSeekP1).html'">
+        <img src="./spaceimage/superman-logo.png" alt="Superman Logo" class="superman-logo">
+        EMERGENCY SUPERMAN MODE
+      </button>
+    </div>
+    
+    <div id="rocket-info" class="retro-terminal"></div>
+  </div>
+  
+  <style>
+    /* Rocket Selector Styles */
+    .rocket-selector {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 20px;
+      border: 3px solid #0f0;
+      background: rgba(0, 0, 0, 0.8);
+    }
+  
+    .retro-dropdown {
+      width: 100%;
+      padding: 12px;
+      margin: 1rem 0;
+      background: #000;
+      color: #0f0;
+      border: 2px solid #f00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1rem;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300ff00" width="24px" height="24px"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      cursor: pointer;
+    }
+  
+    .option-group {
+      background: #002200;
+    }
+  
+    /* Superman Button */
+    .superman-button {
+      width: 100%;
+      padding: 15px;
+      margin: 1rem 0;
+      background: #0000ff;
+      color: #fff;
+      border: 2px solid #f00;
+      font-family: 'Press Start 2P', cursive;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .superman-button:hover {
+      background: #f00;
+      transform: scale(1.05);
+      text-shadow: 0 0 10px #fff;
+    }
+  
+    .superman-logo {
+      width: 30px;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 10px;
+      filter: drop-shadow(0 0 2px #fff);
+    }
+  
+    /* Retro Terminal Display */
+    .retro-terminal {
+      padding: 15px;
+      margin: 1rem 0;
+      border: 2px solid #0f0;
+      background: #001100;
+      color: #0f0;
+      min-height: 100px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+  
+  <script>
+    // Rocket Selector Functionality
+    const rocketSelect = document.getElementById('rocket-select');
+    const rocketInfo = document.getElementById('rocket-info');
+  
+    const rocketData = {
+      falcon9: "Reusable orbital-class rocket • 1st stage landing capability • Cost: $62M",
+      starship: "Fully reusable Mars rocket • 100+ ton capacity • Stainless steel design",
+      saturnv: "Apollo program legend • 363ft tall • 7.5M pounds of thrust",
+      quinjet: "S.H.I.E.L.D. multipurpose aircraft • VTOL capability • Contains espresso machine",
+      pslv: "India's workhorse • 44 consecutive successes • Moon/Mars proven"
+    };
+  
+    rocketSelect.addEventListener('change', (e) => {
+      const info = rocketData[e.target.value] || "No additional data available";
+      rocketInfo.innerHTML = `
+        <strong>SELECTED:</strong> ${rocketSelect.options[rocketSelect.selectedIndex].text}<br>
+        <em>${info}</em>
+      `;
+      rocketInfo.classList.add('terminal-flash');
+      setTimeout(() => rocketInfo.classList.remove('terminal-flash'), 500);
+    });
+  </script>
+
+      <div class="checklist">
+        <h3>Space Travel Checklist</h3>
+        <ul>
+          <li><img src="./spaceimage/towel-icon.png" alt="Towel Icon"> Bring towel (Douglas Adams approved)</li>
+          <li><img src="./spaceimage/handsake-icon.png" alt="Alien Handshake Icon"> Learn alien handshake</li>
+          <li><img src="./spaceimage/sunscream-icon.png" alt="Space Sunscreen Icon"> Pack space sunscreen (SPF ∞)</li>
+        </ul>
+      </div>
+
+      <div class="reviews">
+        <h3>Customer Reviews</h3>
+        <div class="review">
+          <img src="./spaceimage/alien-avatar.png" alt="Alien Avatar">
+          <p>"Best space travel ever! 10/10 would recommend!" - Zorg from Alpha Centauri</p>
+        </div>
+        <div class="review">
+          <img src="./spaceimage/human-avatar (2).jpg" alt="Astronaut Avatar">
+          <p>"The zero-gravity yoga class was out of this world!" - Buzz from Earth</p>
+        </div>
       </div>
     </div>
   </div>
-</body>
 
+  <script>
+
+    // Mission Control Functionality
+    const launchButton = document.getElementById('launch-button');
+    const shieldButton = document.getElementById('shield-button');
+    const hyperdriveButton = document.getElementById('hyperdrive-button');
+    const statusMessage = document.getElementById('status-message');
+    const rocket = document.getElementById('rocket');
+  
+    // Launch Rocket
+    launchButton.addEventListener('click', () => {
+      statusMessage.textContent = "Status: Launching in 3... 2... 1...";
+      setTimeout(() => {
+        statusMessage.textContent = "Status: Rocket launched! 🚀";
+        rocket.style.animation = 'launch 5s linear forwards';
+      }, 3000);
+    });
+  
+    // Activate Shields
+    shieldButton.addEventListener('click', () => {
+      statusMessage.textContent = "Status: Shields activated! 🛡️";
+      shieldButton.style.backgroundColor = '#00f'; // Change button color
+      shieldButton.style.color = '#fff';
+    });
+  
+    // Engage Hyperdrive
+    hyperdriveButton.addEventListener('click', () => {
+      statusMessage.textContent = "Status: Engaging hyperdrive... 🌌";
+      setTimeout(() => {
+        statusMessage.textContent = "Status: Hyperspace jump complete!";
+        document.body.style.background = 'linear-gradient(45deg, #000, #00f)'; // Simulate hyperspace effect
+      }, 2000);
+    });
+ 
+  </script>
+</body>
 </html>
