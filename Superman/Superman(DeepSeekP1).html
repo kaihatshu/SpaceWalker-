@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUPERMAN - The Man of Steel</title>
+  <link rel="stylesheet" href="superman1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- CRT Scanlines Overlay -->
+  <div class="crt-overlay"></div>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="intro">
+      <h2>The "KRYPTONIAN Son"</h2>
+      <h1>KAL-EL</h1>
+      <p class="tagline">Faster than a speeding bullet, more powerful than a locomotive...</p>
+    </div>
+    <div class="intro-right">
+      <img src="supe.jpg" alt="Superman in action" class="hero-image">
+    </div>
+  </div>
+
+  <!-- Superman Facts Section -->
+  <div class="facts-section">
+    <div class="content-wrapper">
+      <h2>CHARACTER FACTS</h2>
+      <div class="facts-grid">
+        <div class="fact-card">
+          <h3>Powers</h3>
+          <ul>
+            <li>Super Strength</li>
+            <li>Flight</li>
+            <li>Invulnerability</li>
+            <li>Heat Vision</li>
+            <li>Freeze Breath</li>
+            <li>X-Ray Vision</li>
+            <li>Superhuman Hearing</li>
+            <li>Healing Factor</li>
+          </ul>
+        </div>
+        <div class="fact-card">
+          <h3>First Appearance</h3>
+          <p>ACTION COMICS #1 (1938)</p>
+        </div>
+        <div class="fact-card">
+          <h3>Alias/Alter Ego</h3>
+          <p>Clark Kent, Kal-El</p>
+        </div>
+        <div class="fact-card">
+          <h3>Occupation</h3>
+          <p>Reporter at The Daily Planet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Superman Gallery -->
+  <div class="gallery-section">
+    <h2>GALLERY</h2>
+    <div class="gallery">
+      <img src="images.png" alt="Superman Logo" class="gallery-image">
+      <img src="Henry.jpg" alt="Henry Cavill as Superman" class="gallery-image">
+    </div>
+  </div>
+
+  <!-- Interactive Table -->
+  <div class="table-section">
+    <h2>SUPERMAN STATS</h2>
+    <table>
+      <tr>
+        <th>Powers</th>
+        <th>First Appearance</th>
+        <th>Alias/Alter Ego</th>
+        <th>Occupation</th>
+        <th>Social Media</th>
+      </tr>
+      <tr>
+        <td>Super Strength, Flight, Heat Vision</td>
+        <td>ACTION COMICS #1 (1938)</td>
+        <td>Clark Kent, Kal-El</td>
+        <td>Reporter</td>
+        <td><a href="#" class="social-link">Facebook</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2023 SPACE WALKER. All rights reserved.</p>
+    <p>Superman is a trademark of DC Comics.</p>
+  </div>
+
+  <!-- JavaScript for Animations -->
+  <script>
+    // Add hover effect to gallery images
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    galleryImages.forEach(image => {
+      image.addEventListener('mouseenter', () => {
+        image.style.transform = 'scale(1.1)';
+        image.style.transition = 'transform 0.3s ease';
+      });
+      image.addEventListener('mouseleave', () => {
+        image.style.transform = 'scale(1)';
+      });
+    });
+
+    // Add scroll animations
+    const sections = document.querySelectorAll('.facts-section, .gallery-section, .table-section');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight * 0.8) {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

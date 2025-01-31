@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPACE WALKER</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Retro CRT Effect */
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                  linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      pointer-events: none;
+      animation: flicker 0.15s infinite;
+      z-index: 9999;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.9; }
+      50% { opacity: 1; }
+      100% { opacity: 0.9; }
+    }
+
+    /* Retro Typography */
+    h1, h2, h3 {
+      font-family: 'Press Start 2P', cursive;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff0;
+      text-shadow: 2px 2px #f00;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #0f0;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #00f;
+    }
+
+    /* Buttons */
+    .button {
+      background: #0f0;
+      color: #000;
+      border: 2px solid #f00;
+      padding: 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #f00;
+      color: #0f0;
+      border-color: #0f0;
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Retro Tables */
+    table {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      border: 3px solid #f00;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 2px solid #f00;
+    }
+
+    /* Rocket Selection Form */
+    form {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 3px solid #0f0;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    select, input[type="submit"] {
+      background: #0f0;
+      color: #000;
+      border: 2px solid #f00;
+      padding: 10px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background: #f00;
+      color: #0f0;
+    }
+
+    /* Satirical Content */
+    .satire {
+      font-style: italic;
+      color: #ff0;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .satire::before {
+      content: "🚀 ";
+    }
+
+    .satire::after {
+      content: " 🚀";
+    }
+  </style>
+</head>
+<body>
+  <h1>SPACE WALKER</h1>
+  <div class="bikash">
+    <button class="button">HOME</button>
+    <button class="button">
+      <a href="https://www.spacex.com/" target="_blank">SpaceX</a>
+    </button>
+    <button class="button">
+      <a href="login/login.html">Login</a>
+    </button>
+  </div>
+
+  <img class="intro" src="Space-intro.jpg" alt="Saturn-like planet with spaceships on the left">
+
+  <hr>
+  <h2>!WELCOME! to our space walking Website!!!!</h2>
+
+  <div class="img-parent-box">
+    <p class="satire">
+      Are you a billionaire who wants to escape Earth because people here are "no damn good"? Or maybe you just have a case of "Elon Syndrome"? Don't worry; we've got you covered! 🚀
+    </p>
+    <p>
+      Space is an almost perfect vacuum, nearly void of matter and with extremely low pressure. In space, sound doesn't carry because there aren't molecules close enough together to transmit sound between them. Not quite empty, bits of gas, dust, and other matter float around "emptier" areas of the universe, while more crowded regions can host planets, stars, and galaxies.
+    </p>
+    <p align="center">
+      <img class="Mars" src="mars.jpg" alt="A couple on Mars">
+    </p>
+  </div>
+
+  <div class="rockets">
+    <div class="imgrocket">
+      <h3>The list of top companies that will lead you to space</h3>
+      <ol>
+        <li>SpaceX</li>
+        <li>Blue Origin</li>
+        <li>NASA</li>
+        <li>ISRO</li>
+        <li>RSA</li>
+      </ol>
+
+      <h3>People who have booked their tickets through our service</h3>
+      <table>
+        <tr>
+          <th>NAME</th>
+          <th>Address</th>
+          <th>Date of Flight</th>
+        </tr>
+        <tr>
+          <td>Donald Trump</td>
+          <td>Washington DC</td>
+          <td>May 2026</td>
+        </tr>
+        <tr>
+          <td>Elon Musk</td>
+          <td>Mars (soon)</td>
+          <td>Whenever he feels like it</td>
+        </tr>
+      </table>
+
+      <h1>The Rocket Selection</h1>
+      <p class="satire">
+        Choose your rocket wisely. Remember, in space, no one can hear you scream... unless you're on a SpaceX livestream. 🚀
+      </p>
+      <form action="/">
+        <label for="rockets">Choose a rocket:</label>
+        <select name="rocket" id="rockets">
+          <optgroup label="SpaceX">
+            <option value="Falcon 9">Falcon 9</option>
+            <option value="STARSHIP">STARSHIP</option>
+          </optgroup>
+          <optgroup label="NASA">
+            <option value="Saturn V">Saturn V</option>
+            <option value="Artemis 1">Artemis 1 Moon Rocket</option>
+          </optgroup>
+          <optgroup label="Marvel (S.H.I.E.L.D.)">
+            <option value="Quin Jet">Quin Jet</option>
+            <option value="Sanctuary 2">Thanos's Sanctuary 2</option>
+            <option value="Benatar">Benatar (Star Lord's Ship)</option>
+          </optgroup>
+          <optgroup label="ISRO">
+            <option value="PSLV">PSLV</option>
+            <option value="Rohini">Rohini</option>
+          </optgroup>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+        <button class="button">
+          <a href="Superman/Superman.html">SUPERMAN</a>
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

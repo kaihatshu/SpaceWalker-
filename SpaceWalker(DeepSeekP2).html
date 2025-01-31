@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPACE WALKER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    /* Combined Styles - Original Charm + Retro Enhancements */
+    body {
+      background: #1a001a; /* Deep purple base */
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* CRT Effect with Purple Tint */
+    body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./spaceimage/scanlines.png.jpg");
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+    .img-parent-box {
+      border: 1px solid #9c27b0; /* Purple border */
+      margin: 2rem;
+      padding: 4rem 2rem;
+      background: url("./spaceimage/bg-image.jpg") center/cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    div.img.child.box {
+      border: 15px solid #957d95; /* Original gray-purple */
+      background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+      padding: 2rem;
+      margin: 1rem 0;
+    }
+
+    .Mars {
+      border: 10px solid #a8a8d0; /* Original blue-gray */
+      max-width: 500px;
+      width: 100%;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(168, 168, 208, 0.5);
+    }
+
+    .rockets {
+      border: 5px solid #ff5252; /* Bright red */
+      margin: 2rem 0;
+      background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+      padding: 2rem;
+      position: relative;
+    }
+
+    .bikash {
+      width: auto;
+      height: auto;
+      padding: 1rem;
+      border-radius: 0 0 0 1rem;
+      background: rgba(209, 203, 203, 0.9); /* Original gray */
+      float: right;
+      margin: 1rem;
+      backdrop-filter: blur(3px);
+    }
+
+    .intro {
+      border: 3px solid #9e9e9e; /* Gray border */
+      background: rgba(156, 159, 161, 0.8); /* Original gray */
+      margin: 2rem auto;
+      width: 95%;
+      max-width: 1350px;
+      position: relative;
+    }
+
+    .button {
+      border: 4px solid #c2c2c2; /* Original gray */
+      background: #0f0; /* Retro green */
+      color: #1a001a; /* Dark purple */
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #ff5252; /* Bright red */
+      border-color: #0f0;
+      color: #fff;
+    }
+
+    /* Keep previous animations and responsiveness */
+    @keyframes flicker { /* ... */ }
+    @keyframes glow { /* ... */ }
+    .stars { /* ... */ }
+    .mission-control { /* ... */ }
+</style>
+  
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Retro CRT Effect */
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.5;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                  linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      pointer-events: none;
+      animation: flicker 0.15s infinite;
+      z-index: 9999;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.9; }
+      50% { opacity: 1; }
+      100% { opacity: 0.9; }
+    }
+
+    /* Floating Stars Animation */
+    @keyframes floatStars {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10%" cy="20%" r="1" fill="white" /><circle cx="30%" cy="50%" r="1" fill="white" /><circle cx="70%" cy="80%" r="1" fill="white" /><circle cx="90%" cy="10%" r="1" fill="white" /></svg>');
+      animation: floatStars 5s infinite;
+      z-index: -1;
+    }
+
+    /* Retro Typography */
+    h1, h2, h3 {
+      font-family: 'Press Start 2P', cursive;
+      text-align: center;
+      margin: 20px 0;
+      padding: 0 15px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #ff0;
+      text-shadow: 2px 2px #f00;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #ff0; }
+      100% { text-shadow: 0 0 20px #ff0; }
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .mars-image {
+      max-width: 500px;
+      border: 3px solid #f00;
+    }
+
+    /* Navigation Buttons */
+    .bikash {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .button {
+      background: #0f0;
+      color: #000;
+      border: 2px solid #f00;
+      padding: 10px 20px;
+      margin: 5px;
+      font-family: 'Courier New', Courier, monospace;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #f00;
+      color: #0f0;
+    }
+
+    /* Content Container */
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Rocket Launch Animation */
+    @keyframes launch {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    .rocket-launch {
+      position: relative;
+      width: 100px;
+      margin: 40px auto;
+      animation: launch 8s linear infinite;
+    }
+
+    /* Mission Control Panel */
+    .mission-control {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 3px solid #0f0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="content-wrapper">
+    <h1>SPACE WALKER</h1>
+    
+    <div class="bikash">
+      <button class="button">HOME</button>
+      <button class="button">
+        <a href="https://www.spacex.com/" target="_blank">SpaceX</a>
+      </button>
+      <button class="button">
+        <a href="login/login.html">Login</a>
+      </button>
+    </div>
+
+    <img class="intro" src="./spaceimage/Space-intro (2).jpg" alt="Retro space scene">
+
+    <hr>
+
+    <h2>!WELCOME! TO OUR SPACE WALKING WEBSITE!!!!</h2>
+
+    <div class="main-content">
+      <p class="satire">
+        "Earth getting too mainstream for you? Try our Mars package - now with 30% less oxygen and 100% more Elon tweets!"
+      </p>
+
+      <img class="mars-image" src="./spaceimage/mars.jpg" alt="Colonists on Mars">
+
+      <div class="mission-control">
+        <button class="button">
+          <img src="./spaceimage/launch-icon.png" alt="Launch Rocket Icon"> Launch Rocket
+        </button>
+        <button class="button">
+          <img src="./spaceimage/shield-icon.png" alt="Activate Shields Icon"> Activate Shields
+        </button>
+        <button class="button">
+          <img src="./spaceimage/hyperdrive-icon.png" alt="Engage Hyperdrive Icon"> Engage Hyperdrive
+        </button>
+      </div>
+
+      <div class="rocket-launch">
+        <img src="./spaceimage/rocket.png.png" alt="Animated rocket">
+      </div>
+
+      <div class="space-weather">
+        <h3>Space Weather Report</h3>
+        <img src="./spaceimage/space-weather.jpeg" alt="Retro space weather map">
+        <p>Mars: Dust storms, bring a scarf! 🌪️</p>
+        <p>Jupiter: Hurricane party, BYOB! 🌀</p>
+        <p>Saturn: Chilly with a chance of rings. ❄️</p>
+      </div>
+
+     
+
+      <div class="galactic-map">
+        <h3>Galactic Destinations</h3>
+        <img src="./spaceimage/galactic-map.jpeg" alt="Retro galactic map">
+        <p>Explore: Elon's Mars Resort, The Milky Way Diner, Black Hole Beach!</p>
+      </div>
+
+      <div class="checklist">
+        <h3>Space Travel Checklist</h3>
+        <ul>
+          <li><img src="./spaceimage/towel-icon.png" alt="Towel Icon"> Bring towel (Douglas Adams approved)</li>
+          <li><img src="./spaceimage/handsake-icon.png" alt="Alien Handshake Icon"> Learn alien handshake</li>
+          <li><img src="./spaceimage/sunscream-icon.png" alt="Space Sunscreen Icon"> Pack space sunscreen (SPF ∞)</li>
+        </ul>
+      </div>
+
+      <div class="reviews">
+        <h3>Customer Reviews</h3>
+        <div class="review">
+          <img src="./spaceimage/alien-avatar.png" alt="Alien Avatar">
+          <p>"Best space travel ever! 10/10 would recommend!" - Zorg from Alpha Centauri</p>
+        </div>
+        <div class="review">
+          <img src="./spaceimage/human-avatar.png" alt="Astronaut Avatar">
+          <p>"The zero-gravity yoga class was out of this world!" - Buzz from Earth</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple animation trigger
+    document.querySelector('.rocket-launch').addEventListener('click', function() {
+      this.style.animation = 'none';
+      setTimeout(() => this.style.animation = 'launch 8s linear infinite', 10);
+    });
+  </script>
+</body>
+</html>
