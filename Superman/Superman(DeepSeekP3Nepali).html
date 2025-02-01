@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUPERMAN - The Man of Steel</title>
+  <link rel="stylesheet" href="superman1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Styling for the Page */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .crt-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      background: linear-gradient(135deg, #003366, #000033);
+    }
+
+    .intro h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .intro h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .hero-image {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .facts-section, .gallery-section, .table-section {
+      padding: 20px;
+      background: #111;
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .fact-card {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-image {
+      max-width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-image:hover {
+      transform: scale(1.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #444;
+      text-align: left;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      margin-top: 20px;
+    }
+
+    .language-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    #language-switch {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #language-switch:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- CRT Scanlines Overlay -->
+  <div class="crt-overlay"></div>
+
+  <!-- Language Toggle Button -->
+  <div class="language-toggle">
+    <button id="language-switch">Switch to Nepali</button>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="intro">
+      <h2 data-translate="heroTitle">The "KRYPTONIAN Son"</h2>
+      <h1 data-translate="heroName">KAL-EL</h1>
+      <p class="tagline" data-translate="heroTagline">Faster than a speeding bullet, more powerful than a locomotive...</p>
+    </div>
+    <div class="intro-right">
+      <img src="supe.jpg" alt="Superman in action" class="hero-image">
+    </div>
+  </div>
+
+  <!-- Superman Facts Section -->
+  <div class="facts-section">
+    <div class="content-wrapper">
+      <h2 data-translate="factsTitle">CHARACTER FACTS</h2>
+      <div class="facts-grid">
+        <div class="fact-card">
+          <h3 data-translate="powers">Powers</h3>
+          <ul>
+            <li data-translate="superStrength">Super Strength</li>
+            <li data-translate="flight">Flight</li>
+            <li data-translate="invulnerability">Invulnerability</li>
+            <li data-translate="heatVision">Heat Vision</li>
+            <li data-translate="freezeBreath">Freeze Breath</li>
+            <li data-translate="xrayVision">X-Ray Vision</li>
+            <li data-translate="superHearing">Superhuman Hearing</li>
+            <li data-translate="healingFactor">Healing Factor</li>
+          </ul>
+        </div>
+        <div class="fact-card">
+          <h3 data-translate="firstAppearance">First Appearance</h3>
+          <p>ACTION COMICS #1 (1938)</p>
+        </div>
+        <div class="fact-card">
+          <h3 data-translate="alias">Alias/Alter Ego</h3>
+          <p>Clark Kent, Kal-El</p>
+        </div>
+        <div class="fact-card">
+          <h3 data-translate="occupation">Occupation</h3>
+          <p>Reporter at The Daily Planet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Superman Gallery -->
+  <div class="gallery-section">
+    <h2 data-translate="galleryTitle">GALLERY</h2>
+    <div class="gallery">
+      <img src="images.png" alt="Superman Logo" class="gallery-image">
+      <img src="Henry.jpg" alt="Henry Cavill as Superman" class="gallery-image">
+    </div>
+  </div>
+
+  <!-- Interactive Table -->
+  <div class="table-section">
+    <h2 data-translate="statsTitle">SUPERMAN STATS</h2>
+    <table>
+      <tr>
+        <th data-translate="powers">Powers</th>
+        <th data-translate="firstAppearance">First Appearance</th>
+        <th data-translate="alias">Alias/Alter Ego</th>
+        <th data-translate="occupation">Occupation</th>
+        <th>Social Media</th>
+      </tr>
+      <tr>
+        <td data-translate="powersList">Super Strength, Flight, Heat Vision</td>
+        <td>ACTION COMICS #1 (1938)</td>
+        <td>Clark Kent, Kal-El</td>
+        <td data-translate="reporter">Reporter</td>
+        <td><a href="#" class="social-link">Facebook</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p data-translate="footerText">© 2023 SPACE WALKER. All rights reserved.</p>
+    <p data-translate="trademarkText">Superman is a trademark of DC Comics.</p>
+  </div>
+
+  <!-- JavaScript for Animations and Language Toggle -->
+  <script>
+    // Add hover effect to gallery images
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    galleryImages.forEach(image => {
+      image.addEventListener('mouseenter', () => {
+        image.style.transform = 'scale(1.1)';
+        image.style.transition = 'transform 0.3s ease';
+      });
+      image.addEventListener('mouseleave', () => {
+        image.style.transform = 'scale(1)';
+      });
+    });
+
+    // Add scroll animations
+    const sections = document.querySelectorAll('.facts-section, .gallery-section, .table-section');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight * 0.8) {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }
+      });
+    });
+
+    // Translations for English and Nepali
+    const translations = {
+      en: {
+        heroTitle: "The KRYPTONIAN Son",
+        heroName: "KAL-EL",
+        heroTagline: "Faster than a speeding bullet, more powerful than a locomotive...",
+        factsTitle: "CHARACTER FACTS",
+        powers: "Powers",
+        superStrength: "Super Strength",
+        flight: "Flight",
+        invulnerability: "Invulnerability",
+        heatVision: "Heat Vision",
+        freezeBreath: "Freeze Breath",
+        xrayVision: "X-Ray Vision",
+        superHearing: "Superhuman Hearing",
+        healingFactor: "Healing Factor",
+        firstAppearance: "First Appearance",
+        alias: "Alias/Alter Ego",
+        occupation: "Occupation",
+        galleryTitle: "GALLERY",
+        statsTitle: "SUPERMAN STATS",
+        powersList: "Super Strength, Flight, Heat Vision",
+        reporter: "Reporter",
+        footerText: "© 2023 SPACE WALKER. All rights reserved.",
+        trademarkText: "Superman is a trademark of DC Comics."
+      },
+      ne: {
+        heroTitle: "क्रिप्टोनियन छोरा",
+        heroName: "काल-एल",
+        heroTagline: "गोली भन्दा छिटो, इन्जिन भन्दा शक्तिशाली...",
+        factsTitle: "चरित्र तथ्यहरू",
+        powers: "शक्तिहरू",
+        superStrength: "अत्यधिक शक्ति",
+        flight: "उडान",
+        invulnerability: "अभेद्यता",
+        heatVision: "ताप दृष्टि",
+        freezeBreath: "ठण्डा सास",
+        xrayVision: "एक्स-रे दृष्टि",
+        superHearing: "अत्यधिक सुन्ने शक्ति",
+        healingFactor: "चिकित्सा क्षमता",
+        firstAppearance: "पहिलो उपस्थिति",
+        alias: "उपनाम/अर्को पहिचान",
+        occupation: "पेशा",
+        galleryTitle: "ग्यालेरी",
+        statsTitle: "सुपरम्यान तथ्याङ्क",
+        powersList: "अत्यधिक शक्ति, उडान, ताप दृष्टि",
+        reporter: "पत्रकार",
+        footerText: "© २०२३ स्पेस वाकर। सर्वाधिकार सुरक्षित।",
+        trademarkText: "सुपरम्यान डीसी कमिक्सको ट्रेडमार्क हो।"
+      }
+    };
+
+    // Function to switch language
+    function switchLanguage(lang) {
+      const elements = document.querySelectorAll('[data-translate]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      // Update button text (only the button text remains unchanged)
+      const switchButton = document.getElementById('language-switch');
+      if (lang === 'ne') {
+        switchButton.textContent = "Switch to English";
+      } else {
+        switchButton.textContent = "Switch to Nepali";
+      }
+    }
+
+    // Add event listener to the language toggle button
+    document.getElementById('language-switch').addEventListener('click', () => {
+      const currentLang = document.documentElement.lang;
+      if (currentLang === 'en') {
+        document.documentElement.lang = 'ne';
+        switchLanguage('ne');
+      } else {
+        document.documentElement.lang = 'en';
+        switchLanguage('en');
+      }
+    });
+
+    // Initialize with English
+    document.documentElement.lang = 'en';
+    switchLanguage('en');
+  </script>
+</body>
+</html>
